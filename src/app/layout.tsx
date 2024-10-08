@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
+import { Roboto } from 'next/font/google'
 import { Header } from "app/components/shared/Header";
 import { Footer } from "app/components/shared/Footer";
 import 'app/sass/global.sass';
+
+const roboto = Roboto({
+  weight: ["100", "300", "400", "500", "700"],
+  subsets: ["latin"]
+});
 
 export const metadata: Metadata = {
   title: "Future world",
@@ -15,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={roboto.className}>
         <Header />
 
         {children}
