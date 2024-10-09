@@ -23,9 +23,7 @@ export const ProductView = ({ product }: ProductViewProps) => {
       <section className={styles.ProductView__info}>
         <h1 className={styles.ProductView__info__title}>{product.title}</h1>
         <p className={styles.ProductView__info__category}>{product.tags}</p>
-        <p className={styles.ProductView__info__description}>
-          <SanitizeHTML tag="p">{product.description}</SanitizeHTML>
-        </p>
+        <SanitizeHTML tag="p">{product.description}</SanitizeHTML>
         <span className={styles.ProductView__info__price}>
           $ {product.price}
         </span>
