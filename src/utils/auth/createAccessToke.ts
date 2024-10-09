@@ -18,6 +18,8 @@ export const createAccessToken = async (email: string, password: string) => {
       expires: new Date(expiresAt),
       httpOnly: true,
       sameSite: "strict"
-    })
+    });
+
+    return accessToken;
   }
 }
