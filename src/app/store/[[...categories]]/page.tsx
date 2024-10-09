@@ -9,13 +9,13 @@ interface CategoryProps {
     searchParams?: any;
 }
 
-export default async function CategoryPage(props: CategoryProps) {
+export default async function CategoryPage(props: Readonly<CategoryProps>) {
     const { categories } = props.params;
     let products = [];
     const collections = await getCollections();
     
     if (categories?.length > 0) {
-        const selectedCollectionId = collections.find((collection: any) => collection.handle === categories[0])?.id;
+        const selectedCollectionId = collections.find((collection: {id: string; handle: string;}) => collection.handle === categories[0])?.id;
         products = await getCollectionProducts(selectedCollectionId);
     } else {
         products = await getProducts();

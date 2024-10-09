@@ -1,6 +1,5 @@
 import { ProductView } from "app/components/product/ProductView";
 import { getProducts } from "app/services/shopify/products";
-import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 interface ProductPageProps {
@@ -9,7 +8,7 @@ interface ProductPageProps {
     }
 }
 
-export async function generateMetadata({searchParams}: ProductPageProps): Metadata {
+export async function generateMetadata({searchParams}: ProductPageProps) {
     const products = await getProducts(searchParams.id);
 
     const product = products[0];
