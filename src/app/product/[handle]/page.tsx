@@ -16,7 +16,6 @@ export default async function ProductPage({ searchParams }: ProductPageProps) {
     const products = await getProducts(searchParams.id);
 
     const product = products[0];
-    console.log(product);
     return (
         <ProductView product={product}/>
     )
